@@ -98,18 +98,25 @@
 }
 
 
-
-.nav-actions button {
+.nav-actions button{
 
   border:none;
 
   background:none;
 
-  color:white;
+  color:#3b2a20;
 
   font-size:22px;
 
   cursor:pointer;
+
+  transition:.3s;
+
+}
+
+.nav-actions button:hover{
+
+  color:#A67C52;
 
 }
 
@@ -120,31 +127,7 @@
   display:none;
 
 }
-@media(max-width:768px){
 
-
-  .nav-links{
-
-    display:none;
-
-  }
-
-
-  .menu-btn{
-
-    display:block;
-
-  }
-
-
-  .logo{
-
-    font-size:26px;
-
-  }
-
-
-}
 .cart-icon{
 
   position:relative;
@@ -184,5 +167,192 @@
   justify-content:center;
 
   align-items:center;
+
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width:992px){
+
+  .navbar-container{
+
+    width:95%;
+
+    height:80px;
+
+  }
+
+  .nav-links{
+
+    gap:20px;
+
+  }
+
+}
+
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width:768px){
+
+  .navbar{
+
+    background:white;
+
+  }
+
+  .navbar-container{
+
+    width:95%;
+
+    height:70px;
+
+  }
+
+  .hero{
+
+    padding-top:80px;
+
+  }
+
+  .logo{
+
+    font-size:22px;
+
+  }
+
+  .nav-links{
+
+    display:none;
+
+  }
+
+  .nav-actions{
+
+    gap:12px;
+
+  }
+
+  .nav-actions button{
+
+    font-size:20px;
+
+  }
+
+  .menu-btn{
+
+    display:block;
+
+  }
+
+}
+
+
+/* ===========================
+   Small Mobile
+=========================== */
+
+@media (max-width:480px){
+
+  .logo{
+
+    font-size:18px;
+
+  }
+
+  .nav-actions{
+
+    gap:8px;
+
+  }
+
+  .nav-actions button{
+
+    font-size:18px;
+
+  }
+
+  .cart-badge{
+
+    width:18px;
+
+    height:18px;
+
+    font-size:10px;
+
+  }
+
+}
+/* ===========================
+   Mobile Menu
+=========================== */
+
+.mobile-menu{
+
+  position:fixed;
+
+  top:0;
+
+  right:-100%;
+
+  width:260px;
+
+  height:100vh;
+
+  background:white;
+
+  display:flex;
+
+  flex-direction:column;
+
+  padding:90px 30px;
+
+  gap:25px;
+
+  transition:.35s;
+
+  box-shadow:-5px 0 25px rgba(0,0,0,.12);
+
+  z-index:2000;
+
+}
+
+.mobile-menu.open{
+
+  right:0;
+
+}
+
+.mobile-menu a{
+
+  text-decoration:none;
+
+  color:#3b2a20;
+
+  font-size:18px;
+
+  font-weight:600;
+
+}
+
+.close-menu{
+
+  position:absolute;
+
+  top:20px;
+
+  right:20px;
+
+  border:none;
+
+  background:none;
+
+  font-size:30px;
+
+  cursor:pointer;
 
 }
