@@ -1,0 +1,61 @@
+.section-title{
+
+    max-width:650px;
+
+    margin:0 auto 60px;
+
+}
+
+.section-title.center{
+
+    text-align:center;
+
+}
+
+.section-title.left{
+
+    text-align:left;
+
+}
+
+.section-subtitle{
+
+    display:inline-block;
+
+    color:var(--primary);
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    margin-bottom:14px;
+
+}
+
+.section-title h2{
+
+    font-size:44px;
+
+    line-height:1.2;
+
+    color:var(--text);
+
+    margin-bottom:18px;
+
+    font-family:"Playfair Display", serif;
+
+}
+
+.section-title p{
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+    font-size:16px;
+
+}

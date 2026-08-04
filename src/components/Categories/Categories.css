@@ -1,0 +1,33 @@
+.categories {
+
+  padding: 100px 0;
+
+}
+
+
+
+.categories-grid {
+
+  width: min(90%,1400px);
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(3,1fr);
+
+  gap: 30px;
+
+}
+
+
+
+@media(max-width:900px){
+
+  .categories-grid{
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
