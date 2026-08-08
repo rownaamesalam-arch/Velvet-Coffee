@@ -45,7 +45,7 @@ fill={
 
 
       <Link 
-        to={`/product/${product.id}`}
+        to={`/product/${product._id}`}
         className="product-link"
       >
 

@@ -1,6 +1,5 @@
-import { useState } from "react";
-
-import products from "../../data/products";
+import { useState,useEffect  } from "react";
+import { getProducts } from "../../services/product.service";
 
 import ProductCard from "../../components/ProductCard/ProductCard";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
@@ -11,35 +10,55 @@ import "./Shop.css";
 
 function Shop() {
 
-
+  const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
 
   const [category, setCategory] = useState("All");
 
   const [sort, setSort] = useState("");
 
+  useEffect(() => {
+
+    const fetchProducts = async () => {
+
+      try {
+
+        const data = await getProducts();
+        console.log(data);
+
+       setProducts(data.products);
+      } catch (error) {
+
+        console.log(error);
+
+      }
+
+    };
+
+    fetchProducts();
+
+  }, []);
+
 
 
   let filteredProducts = products.filter((product)=>{
 
-
     const matchSearch =
-      product.name
-      .toLowerCase()
-      .includes(
-        search.toLowerCase()
-      );
+        product.name
+        .toLowerCase()
+        .includes(
+            search.toLowerCase()
+        );
 
 
     const matchCategory =
-      category === "All" ||
-      product.category === category;
+        category === "All" ||
+        product.category === category;
 
 
     return matchSearch && matchCategory;
 
-
-  });
+});
 
 
 
@@ -106,7 +125,7 @@ function Shop() {
 
             <ProductCard
 
-              key={product.id}
+              key={product._id}
 
               product={product}
 
