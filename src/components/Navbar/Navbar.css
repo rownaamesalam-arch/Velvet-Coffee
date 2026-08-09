@@ -59,7 +59,8 @@
 
 .nav-actions button,
 .cart-icon,
-.wishlist-icon {
+.wishlist-icon,
+.account-icon {
   align-items: center;
   background: rgba(255, 255, 255, .72);
   border: 1px solid var(--border);
@@ -76,7 +77,8 @@
 
 .nav-actions button:hover,
 .cart-icon:hover,
-.wishlist-icon:hover {
+.wishlist-icon:hover,
+.account-icon:hover {
   box-shadow: var(--shadow-sm);
   color: var(--primary);
   transform: translateY(-2px);
@@ -155,8 +157,21 @@ body.dark .navbar {
 
 body.dark .nav-actions button,
 body.dark .cart-icon,
-body.dark .wishlist-icon {
+body.dark .wishlist-icon,
+body.dark .account-icon {
   background: rgba(255, 255, 255, .06);
+}
+
+.mobile-logout {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: 13px 0;
+  text-align: left;
 }
 
 @media (max-width: 992px) {
@@ -211,7 +226,8 @@ body.dark .wishlist-icon {
 
   .nav-actions button,
   .cart-icon,
-  .wishlist-icon {
+  .wishlist-icon,
+  .account-icon {
     font-size: 18px;
     height: 38px;
     width: 38px;

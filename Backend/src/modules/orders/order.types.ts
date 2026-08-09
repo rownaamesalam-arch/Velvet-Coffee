@@ -10,7 +10,15 @@ export interface IOrderItem{
 
 export interface IOrder{
     user:Types.ObjectId,
-    items:[IOrderItem],
+    items:IOrderItem[],
     total:number,
-    status:string
+    status:string,
+    shippingAddress:{
+        fullName:string,
+        phone:string,
+        address:string,
+        city:string,
+        postalCode:string,
+        country:string
+    }
 }

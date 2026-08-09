@@ -1,4 +1,5 @@
 import { useCart } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 
 import "./Cart.css";
 
@@ -162,9 +163,9 @@ Remove
 
 
 
-          <button>
+          <Link className="checkout-link" to="/checkout">
             Checkout
-          </button>
+          </Link>
 
 
           </>

@@ -5,6 +5,7 @@ import authrouter from "./modules/auth/auth.routes.js";
 import productRoute from "./modules/products/product.routes.js";
 import cartRouter from "./modules/cart/cart.routes.js";
 import wishlistRouter from "./modules/wishlist/wishlist.routes.js";
+import checkoutRouter from "./modules/orders/order.routes.js";
 const app = express();
 await connectDB()
 app.use(cors());
@@ -14,4 +15,5 @@ app.use(authrouter)
 app.use(productRoute)
 app.use(cartRouter)
 app.use(wishlistRouter)
+app.use(checkoutRouter)
 export default app;

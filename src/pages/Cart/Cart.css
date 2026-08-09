@@ -50,6 +50,23 @@
   transition: .25s ease;
 }
 
+.checkout-link {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  border-radius: 999px;
+  color: white;
+  display: block;
+  font-weight: 800;
+  margin: 30px auto;
+  padding: 14px 34px;
+  text-align: center;
+  transition: .25s ease;
+  width: fit-content;
+}
+
+.checkout-link:hover {
+  transform: translateY(-2px);
+}
+
 .cart button:hover {
   background: var(--primary);
   transform: translateY(-2px);

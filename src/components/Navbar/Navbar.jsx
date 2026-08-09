@@ -7,16 +7,20 @@ import {
   FiMenu,
   FiMoon,
   FiSun,
+  FiUser,
+  FiLogOut,
 } from "react-icons/fi";
 
 import "./Navbar.css";
 
 import { useCart } from "../../context/CartContext";
 import { useTheme } from "../../context/ThemeContext";
+import { useAuth } from "../../context/AuthContext";
 
 function Navbar() {
   const { cartItems } = useCart();
   const { darkMode, setDarkMode } = useTheme();
+  const { isAuthenticated, logout } = useAuth();
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -47,6 +51,10 @@ function Navbar() {
             <a href="#footer">
               About
             </a>
+
+            {!isAuthenticated && (
+              <Link to="/login">Login</Link>
+            )}
           </nav>
 
           <div className="nav-actions">
@@ -82,6 +90,23 @@ function Navbar() {
                 </span>
               )}
             </Link>
+
+            {isAuthenticated ? (
+              <button
+                aria-label="Logout"
+                onClick={logout}
+              >
+                <FiLogOut />
+              </button>
+            ) : (
+              <Link
+                to="/login"
+                className="account-icon"
+                aria-label="Login"
+              >
+                <FiUser />
+              </Link>
+            )}
 
             <button
               className="menu-btn"
@@ -127,6 +152,27 @@ function Navbar() {
         >
           Wishlist
         </Link>
+
+        {!isAuthenticated && (
+          <Link
+            to="/login"
+            onClick={() => setMenuOpen(false)}
+          >
+            Login
+          </Link>
+        )}
+
+        {isAuthenticated && (
+          <button
+            className="mobile-logout"
+            onClick={() => {
+              logout();
+              setMenuOpen(false);
+            }}
+          >
+            Logout
+          </button>
+        )}
 
         <a
           href="#categories"

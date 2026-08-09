@@ -1,45 +1,96 @@
-import { Cart } from "../cart/cart.model.js"
+import { Cart } from "../cart/cart.model.js";
 import { Product } from "../products/product.model.js";
 import { Order } from "./order.model.js";
 
-export const checkout = async (userId: string) => {
+type CheckoutItem = {
+    product: string;
+    size?: string;
+    quantity: number;
+};
 
-    const cart = await Cart.findOne({
-        user: userId
-    });
+type ShippingAddress = {
+    fullName: string;
+    phone: string;
+    address: string;
+    city: string;
+    postalCode: string;
+    country: string;
+};
 
-    if (!cart) {
-        throw new Error("cart not found");
+type CheckoutPayload = {
+    items?: CheckoutItem[];
+    shippingAddress?: ShippingAddress;
+};
+
+const validateShippingAddress = (shippingAddress?: ShippingAddress) => {
+    if (!shippingAddress) {
+        throw new Error("shipping address is required");
     }
 
-    if (cart.items.length === 0) {
+    const requiredFields: Array<keyof ShippingAddress> = [
+        "fullName",
+        "phone",
+        "address",
+        "city",
+        "postalCode",
+        "country"
+    ];
+
+    for (const field of requiredFields) {
+        if (!shippingAddress[field]) {
+            throw new Error(`${field} is required`);
+        }
+    }
+};
+
+export const checkout = async (userId: string, data: CheckoutPayload = {}) => {
+    validateShippingAddress(data.shippingAddress);
+    const shippingAddress = data.shippingAddress as ShippingAddress;
+
+    let checkoutItems = data.items;
+    let cart = null;
+
+    if (!checkoutItems || checkoutItems.length === 0) {
+        cart = await Cart.findOne({
+            user: userId
+        });
+
+        if (!cart) {
+            throw new Error("cart not found");
+        }
+
+        checkoutItems = cart.items.map((item) => ({
+            product: item.product.toString(),
+            size: item.size,
+            quantity: item.quantity
+        }));
+    }
+
+    if (checkoutItems.length === 0) {
         throw new Error("cart is empty");
     }
-
 
     const orderItems = [];
 
     let total = 0;
 
-    for (const cartItem of cart.items) {
-
+    for (const checkoutItem of checkoutItems) {
         const product = await Product.findById(
-            cartItem.product
+            checkoutItem.product
         );
 
         if (!product) {
             throw new Error("product not found");
         }
 
-
-        if (product.stock < cartItem.quantity) {
+        if (product.stock < checkoutItem.quantity) {
             throw new Error(
                 `not enough stock for ${product.name}`
             );
         }
 
         const itemTotal =
-            product.price * cartItem.quantity;
+            product.price * checkoutItem.quantity;
 
         total += itemTotal;
 
@@ -47,35 +98,34 @@ export const checkout = async (userId: string) => {
             product: product._id,
             name: product.name,
             price: product.price,
-            size: cartItem.size,
-            quantity: cartItem.quantity
+            size: checkoutItem.size || "Default",
+            quantity: checkoutItem.quantity
         });
     }
 
     const order = await Order.create({
         user: userId,
         items: orderItems,
-        total: total,
+        total,
+        shippingAddress,
         status: "pending"
     });
 
-
-    for (const cartItem of cart.items) {
-
+    for (const checkoutItem of checkoutItems) {
         await Product.findByIdAndUpdate(
-            cartItem.product,
+            checkoutItem.product,
             {
                 $inc: {
-                    stock: -cartItem.quantity
+                    stock: -checkoutItem.quantity
                 }
             }
         );
     }
 
-    cart.items = [];
-
-    await cart.save();
-
+    if (cart) {
+        cart.items = [];
+        await cart.save();
+    }
 
     return order;
 };

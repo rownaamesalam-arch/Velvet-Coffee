@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { Toaster } from "react-hot-toast";
 import { RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeContext";
+import { AuthProvider } from "./context/AuthContext";
 import "./styles/global.css";
 
 import router from "./routes/AppRouter";
@@ -19,6 +20,8 @@ ReactDOM.createRoot(
 
 <ThemeProvider>
 
+<AuthProvider>
+
 <WishlistProvider>
 
 <CartProvider>
@@ -32,6 +35,8 @@ ReactDOM.createRoot(
 </CartProvider>
 
 </WishlistProvider>
+
+</AuthProvider>
 
 </ThemeProvider>
 
