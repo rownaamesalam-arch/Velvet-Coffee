@@ -18,6 +18,8 @@ function Wishlist(){
     addToCart
   } = useCart();
 
+  const getProductId = (product) => product._id || product.id;
+
 
 
   return (
@@ -51,7 +53,7 @@ function Wishlist(){
 
               <div
                 className="wishlist-card"
-                key={product.id}
+                key={getProductId(product)}
               >
 
 

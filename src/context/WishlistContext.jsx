@@ -8,6 +8,7 @@ import {
 
 const WishlistContext = createContext();
 
+const getProductId = (product) => product._id || product.id;
 
 
 export function WishlistProvider({children}){
@@ -42,7 +43,7 @@ export function WishlistProvider({children}){
 
 
       const exists = prev.find(
-        item => item.id === product.id
+        item => getProductId(item) === getProductId(product)
       );
 
 
@@ -50,7 +51,7 @@ export function WishlistProvider({children}){
       if(exists){
 
         return prev.filter(
-          item => item.id !== product.id
+          item => getProductId(item) !== getProductId(product)
         );
 
       }

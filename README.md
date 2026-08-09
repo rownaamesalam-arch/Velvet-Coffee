@@ -1,5 +1,24 @@
 # React + Vite
 
+## Run frontend with backend
+
+Start the backend first:
+
+```bash
+cd Backend
+npm install
+npm run dev
+```
+
+In another terminal, start the frontend:
+
+```bash
+npm install
+npm run dev
+```
+
+The frontend uses `http://localhost:200` by default. To use another backend URL, copy `.env.example` to `.env` and change `VITE_API_URL`.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

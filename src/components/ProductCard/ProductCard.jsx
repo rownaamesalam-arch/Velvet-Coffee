@@ -36,7 +36,7 @@ onClick={()=>toggleWishlist(product)}
 
 fill={
  wishlistItems.some(
-  item=>item.id===product.id
+  item=>(item._id || item.id)===productId
  )
  ? "#8b5e3c"
  : "none"

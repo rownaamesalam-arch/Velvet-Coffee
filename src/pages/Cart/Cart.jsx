@@ -18,6 +18,8 @@ removeFromCart
 
 } = useCart();
 
+const getProductId = (product) => product._id || product.id;
+
 
 
   const total = cartItems.reduce(
@@ -66,7 +68,7 @@ removeFromCart
 
               <div 
                 className="cart-item"
-                key={item.id}
+                key={getProductId(item)}
               >
 
 
@@ -98,7 +100,7 @@ removeFromCart
 
 <button
 
-onClick={()=>decreaseQuantity(item.id)}
+onClick={()=>decreaseQuantity(getProductId(item))}
 
 >
 -
@@ -114,7 +116,7 @@ onClick={()=>decreaseQuantity(item.id)}
 
 <button
 
-onClick={()=>increaseQuantity(item.id)}
+onClick={()=>increaseQuantity(getProductId(item))}
 
 >
 +
@@ -129,7 +131,7 @@ onClick={()=>increaseQuantity(item.id)}
 
 className="remove"
 
-onClick={()=>removeFromCart(item.id)}
+onClick={()=>removeFromCart(getProductId(item))}
 
 >
 
