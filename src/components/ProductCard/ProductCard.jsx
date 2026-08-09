@@ -17,9 +17,11 @@ function ProductCard({ product }) {
     <article className="product-card">
 
 
-      <span className="product-badge">
-        {product.badge}
-      </span>
+      {product.badge && (
+        <span className="product-badge">
+          {product.badge}
+        </span>
+      )}
 
 
       <button
@@ -77,9 +79,11 @@ fill={
 
 
 
-          <div className="rating">
-            ⭐ {product.rating}
-          </div>
+          {product.rating && (
+            <div className="rating">
+              ⭐ {product.rating}
+            </div>
+          )}
 
 
 
@@ -91,9 +95,11 @@ fill={
             </span>
 
 
-            <span className="old-price">
-              ${product.oldPrice}
-            </span>
+            {product.oldPrice && (
+              <span className="old-price">
+                ${product.oldPrice}
+              </span>
+            )}
 
 
           </div>

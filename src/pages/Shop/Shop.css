@@ -1,7 +1,12 @@
 .shop {
   background: transparent;
   min-height: 100vh;
-  padding: 140px 0 100px;
+  padding: 168px 0 100px;
+}
+
+.shop .section-title {
+  margin-bottom: 36px;
+  padding: 0 20px;
 }
 
 .shop-grid {
@@ -20,7 +25,7 @@
 
 @media (max-width: 600px) {
   .shop {
-    padding: 110px 0 60px;
+    padding: 118px 0 60px;
   }
 
   .shop-grid {
