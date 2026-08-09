@@ -129,3 +129,11 @@ export const checkout = async (userId: string, data: CheckoutPayload = {}) => {
 
     return order;
 };
+
+export const getMyOrders = async (userId: string) => {
+    return Order.find({
+        user: userId
+    }).sort({
+        createdAt: -1
+    });
+};

@@ -10,6 +10,7 @@ import Wishlist from "../pages/Wishlist/Wishlist";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 import Checkout from "../pages/Checkout/Checkout";
+import Orders from "../pages/Orders/Orders";
 
 
 const router = createBrowserRouter([
@@ -58,6 +59,11 @@ const router = createBrowserRouter([
       {
         path: "checkout",
         element: <Checkout />,
+      },
+
+      {
+        path: "orders",
+        element: <Orders />,
       },
 
     ],

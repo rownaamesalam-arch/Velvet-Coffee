@@ -52,6 +52,10 @@ function Navbar() {
               About
             </a>
 
+            {isAuthenticated && (
+              <Link to="/orders">Orders</Link>
+            )}
+
             {!isAuthenticated && (
               <Link to="/login">Login</Link>
             )}
@@ -152,6 +156,15 @@ function Navbar() {
         >
           Wishlist
         </Link>
+
+        {isAuthenticated && (
+          <Link
+            to="/orders"
+            onClick={() => setMenuOpen(false)}
+          >
+            Orders
+          </Link>
+        )}
 
         {!isAuthenticated && (
           <Link

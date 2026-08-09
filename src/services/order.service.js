@@ -5,3 +5,9 @@ export const placeOrder = async (orderData) => {
 
   return response.data;
 };
+
+export const getMyOrders = async () => {
+  const response = await API.get("/orders");
+
+  return response.data;
+};
