@@ -1,33 +1,21 @@
 .categories {
-
-  padding: 100px 0;
-
+  padding: 100px 0 70px;
 }
-
-
 
 .categories-grid {
-
-  width: min(90%,1400px);
-
-  margin: auto;
-
   display: grid;
-
-  grid-template-columns: repeat(3,1fr);
-
-  gap: 30px;
-
+  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: auto;
+  width: min(92%, 1200px);
 }
 
-
-
-@media(max-width:900px){
-
-  .categories-grid{
-
-    grid-template-columns: 1fr;
-
+@media (max-width: 900px) {
+  .categories {
+    padding: 70px 0 50px;
   }
 
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
 }

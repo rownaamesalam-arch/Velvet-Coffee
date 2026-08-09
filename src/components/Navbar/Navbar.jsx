@@ -30,7 +30,7 @@ function Navbar() {
       <header className="navbar">
         <div className="navbar-container">
           <div className="logo">
-            Velvet Coffee
+            <Link to="/">Velvet Coffee</Link>
           </div>
 
           <nav className="nav-links">
@@ -50,11 +50,12 @@ function Navbar() {
           </nav>
 
           <div className="nav-actions">
-            <button>
+            <button aria-label="Search">
               <FiSearch />
             </button>
 
             <button
+              aria-label="Toggle theme"
               onClick={() => setDarkMode(!darkMode)}
             >
               {darkMode ? <FiSun /> : <FiMoon />}
@@ -63,6 +64,7 @@ function Navbar() {
             <Link
               to="/wishlist"
               className="wishlist-icon"
+              aria-label="Wishlist"
             >
               <FiHeart />
             </Link>
@@ -70,6 +72,7 @@ function Navbar() {
             <Link
               to="/cart"
               className="cart-icon"
+              aria-label="Cart"
             >
               <FiShoppingBag />
 
@@ -82,6 +85,7 @@ function Navbar() {
 
             <button
               className="menu-btn"
+              aria-label="Open menu"
               onClick={() => setMenuOpen(true)}
             >
               <FiMenu />
@@ -97,6 +101,7 @@ function Navbar() {
       >
         <button
           className="close-menu"
+          aria-label="Close menu"
           onClick={() => setMenuOpen(false)}
         >
           ✕

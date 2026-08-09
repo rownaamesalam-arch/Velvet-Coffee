@@ -10,6 +10,8 @@ function ProductCard({ product }) {
   toggleWishlist
 }=useWishlist();
 
+  const productId = product._id || product.id;
+
   return (
 
     <article className="product-card">
@@ -45,7 +47,7 @@ fill={
 
 
       <Link 
-        to={`/product/${product._id}`}
+        to={`/product/${productId}`}
         className="product-link"
       >
 

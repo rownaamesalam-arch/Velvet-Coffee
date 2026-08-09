@@ -1,120 +1,74 @@
 @import url("./variables.css");
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap");
 
-*{
-
-  margin:0;
-
-  padding:0;
-
-  box-sizing:border-box;
-
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-html{
-
-  scroll-behavior:smooth;
-
+html {
+  scroll-behavior: smooth;
 }
 
-body{
-
-  background:var(--background);
-
-  color:var(--text);
-
-  font-family:"Poppins",sans-serif;
-
-  overflow-x:hidden;   /* مهم جدًا */
-
+body {
+  background:
+    radial-gradient(circle at top left, rgba(217, 162, 95, .18), transparent 32rem),
+    linear-gradient(180deg, #fbf7f1 0%, var(--background) 42%, #f3eadf 100%);
+  color: var(--text);
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
 }
 
-img{
-
-  display:block;
-
-  max-width:100%;
-
-  height:auto;         /* أضيفي السطر ده */
-
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
 }
 
-button{
-
-  font-family:inherit;
-
+button {
+  font-family: inherit;
 }
 
-a{
-
-  text-decoration:none;
-
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
-ul{
-
-  list-style:none;
-
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid rgba(217, 162, 95, .45);
+  outline-offset: 4px;
 }
 
-.container{
-
-  width:min(90%,1400px);
-
-  margin:auto;
-
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-/* Dark Mode */
-
-body.dark{
-
-  background:#121212;
-
-  color:white;
-
+ul {
+  list-style: none;
 }
 
-body.dark .navbar{
-
-  background:#1e1e1e;
-
+.container {
+  margin: auto;
+  width: min(92%, 1200px);
 }
 
-body.dark .hero h1{
-
-  color:white;
-
+body.dark {
+  --background: #121212;
+  --background-alt: #1b1715;
+  --surface: #1f1b18;
+  --surface-strong: #25201d;
+  --text: #f8f1ea;
+  --text-light: #c7bab0;
+  --border: rgba(255, 255, 255, .11);
+  background: #121212;
+  color: var(--text);
 }
 
-body.dark .hero p{
-
-  color:#ccc;
-
-}
-
-body.dark .product-card{
-
-  background:#1e1e1e;
-
-  color:white;
-
-}
-
-body.dark .footer{
-
-  background:#080808;
-
-}
-
-/* Mobile */
-
-@media (max-width:768px){
-
-  .container{
-
-    width:92%;
-
+@media (max-width: 768px) {
+  .container {
+    width: 92%;
   }
-
 }

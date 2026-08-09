@@ -50,7 +50,7 @@ setSort
 
       >
 
-        <option>
+        <option value="All">
           All Categories
         </option>
 

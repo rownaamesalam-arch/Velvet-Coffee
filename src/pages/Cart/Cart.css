@@ -1,121 +1,87 @@
 .cart {
-
-  padding:140px 5% 80px;
-
-  background:#faf7f2;
-
-  min-height:100vh;
-
+  background: transparent;
+  min-height: 100vh;
+  padding: 140px 5% 80px;
 }
-
-
 
 .cart h1 {
-
-  text-align:center;
-
-  font-family:"Playfair Display",serif;
-
-  font-size:45px;
-
-  margin-bottom:50px;
-
+  color: var(--text);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(34px, 5vw, 52px);
+  letter-spacing: 0;
+  margin-bottom: 44px;
+  text-align: center;
 }
-
-
 
 .cart-items {
-
-  max-width:900px;
-
-  margin:auto;
-
+  margin: auto;
+  max-width: 920px;
 }
-
-
 
 .cart-item {
-
-  background:white;
-
-  padding:20px;
-
-  border-radius:20px;
-
-  display:flex;
-
-  gap:25px;
-
-  margin-bottom:20px;
-
+  align-items: center;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  gap: 24px;
+  margin-bottom: 18px;
+  padding: 18px;
 }
-
-
 
 .cart-item img {
-
-  width:120px;
-
-  height:120px;
-
-  object-fit:cover;
-
-  border-radius:15px;
-
+  border-radius: var(--radius-md);
+  height: 120px;
+  object-fit: cover;
+  width: 120px;
 }
-
-
 
 .cart button {
-
-  display:block;
-
-  margin:30px auto;
-
-  padding:15px 40px;
-
-  border:none;
-
-  border-radius:50px;
-
-  background:#3b2a20;
-
-  color:white;
-
-  cursor:pointer;
-
+  background: var(--primary-dark);
+  border: none;
+  border-radius: 999px;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-weight: 700;
+  margin: 30px auto;
+  padding: 14px 34px;
+  transition: .25s ease;
 }
 
-.quantity{
-
-display:flex;
-
-align-items:center;
-
-gap:15px;
-
-margin-top:15px;
-
+.cart button:hover {
+  background: var(--primary);
+  transform: translateY(-2px);
 }
 
-
-.quantity button{
-
-width:35px;
-
-height:35px;
-
-border-radius:50%;
-
-padding:0;
-
+.quantity {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
 }
 
+.quantity button {
+  height: 34px;
+  margin: 0;
+  padding: 0;
+  width: 34px;
+}
 
-.remove{
+.remove {
+  background: var(--primary) !important;
+  margin: 15px 0 0 !important;
+}
 
-background:#8b5e3c !important;
+@media (max-width: 640px) {
+  .cart-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 
-margin:15px 0 !important;
-
+  .cart-item img {
+    height: 220px;
+    width: 100%;
+  }
 }
